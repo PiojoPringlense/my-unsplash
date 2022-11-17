@@ -10,7 +10,7 @@ const DeletePhoto = ({ setDeleteId, setIsRefresh, id }) => {
 
 		var urlencoded = new URLSearchParams();
 		urlencoded.append("id", id);
-
+		console.log("Delete id: ", id);
 		var requestOptions = {
 			method: "DELETE",
 			headers: myHeaders,
@@ -21,7 +21,7 @@ const DeletePhoto = ({ setDeleteId, setIsRefresh, id }) => {
 		fetch(url, requestOptions)
 			.then((r) => r.json())
 			.then((r) => {
-				if (r.acknowledged) {
+				if (r === 1) {
 					setDeleteId(false);
 					setIsError(false);
 					setIsRefresh((curr) => !curr);

@@ -38,7 +38,10 @@ function App() {
 							Search by name
 						</label>
 						<input
-							onChange={(e) => setSearchTerm(e.target.value)}
+							onChange={(e) => {
+								e.preventDefault();
+								setSearchTerm(e.target.value);
+							}}
 							className="outline-none"
 							type="search"
 							name="search"

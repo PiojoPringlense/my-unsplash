@@ -32,7 +32,8 @@ const AddPhoto = ({ setIsAdding, setIsRefresh }) => {
 		fetch(url, requestOptions)
 			.then((r) => r.json())
 			.then((r) => {
-				if (r.acknowledged) {
+				console.log("Adding image", r);
+				if (r === 1) {
 					setIsAdding(false);
 					setIsError(false);
 					setIsRefresh((curr) => !curr);
